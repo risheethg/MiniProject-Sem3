@@ -1,8 +1,8 @@
 #pragma once
 
-#include <GLFW/glfw3.h>
-#include <glad/glad.h>
+#pragma once
 
+#include "pch.h"
 #include "Events/Event.h"
 
 namespace Engine {
@@ -10,43 +10,31 @@ namespace Engine {
 	struct WindowProps
 	{
 		std::string Title;
-		unsigned int Width, Height;
+		unsigned int Width;
+		unsigned int Height;
 
-		WindowProps(const std::string& title = "Fruit Ninja", unsigned int width = 1280,
-			unsigned int height = 720)
-			: Title(title), Width(width), Height(height) {}
+		WindowProps(const std::string& title = "Fruit Engine", unsigned int width = 1280,
+			unsigned int height = 720) : Title(title), Width(width), Height(height)
+		{
+		}
+
 	};
 
 	class Window
 	{
-		using EventCallBackFn = std::function<void(Event&)>;
 	public:
-		Window(const WindowProps& props);
-		~Window();
+		using EventCallbackFn = std::function<void(Event&)>;
 
-		inline unsigned int GetWidth() const { return m_Data.Width; }
-		inline unsigned int GetHeight() const { return m_Data.Height; }
-	
+		virtual ~Window() {};
 
-		void OnUpdate();
-		inline void SetEventCallBack(const EventCallBackFn& callback) { m_Data.EventCallBack = callback; }
+		virtual void OnUpdate() = 0;
 
-		static Window* Create(const WindowProps& props = WindowProps());
-	private:
-		GLFWwindow* m_Window;
-		
-		void Init(const WindowProps& props);
-		void Shutdown();
+		virtual unsigned int GetWidth() const = 0;
+		virtual unsigned int GetHeight() const = 0;
 
-		struct WindowData
-		{
-			std::string Title;
-			unsigned int Width, Height;
-			EventCallBackFn EventCallBack;
-		};
+		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 
-		WindowData m_Data;
+		static Window* Create(const WindowProps& Props = WindowProps());
 	};
 
 }
-

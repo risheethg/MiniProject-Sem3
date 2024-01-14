@@ -12,14 +12,14 @@ namespace Engine {
 		inline float GetXPos() const { return m_XPos; }
 		inline float GetYPos() const { return m_YPos; }
 
-		static EventType GetStaticType() { return EventType::MouseMoved; }
+		static EventType GetStaticType() { return EventType::MouseMove; }
 		EventType GetEventType() const override { return GetStaticType(); }
-		const char* GetName() const override { return "MouseMoved"; }
+		const char* GetName() const override { return "MouseMove"; }
 		
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseMovedEvent: " << GetXPos() << " ," << GetYPos();
+			ss << "MouseMoveEvent: " << GetXPos() << " ," << GetYPos();
 			return ss.str();
 		}
 	private:

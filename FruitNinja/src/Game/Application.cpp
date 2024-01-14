@@ -3,6 +3,11 @@
 
 #include "Log.h"
 
+#include "Events/Event.h"
+#include "Events/MouseEvent.h"
+#include "Events/ApplicationEvent.h"
+
+#include <glad/glad.h>
 
 namespace Engine {
 
@@ -13,9 +18,6 @@ namespace Engine {
 	Application::Application()
 	{
 		Init();
-
-		m_Window = std::unique_ptr<Window>(Window::Create({"Test", 1280, 720}));
-		m_Window->SetEventCallBack(BIND_EVENT_FN(OnEvent));
 	}
 
 	Application::~Application()
@@ -27,6 +29,9 @@ namespace Engine {
 	{
 		Log::Init();
 		ENGINE_CORE_WARN("Logger Initialized!");
+
+		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 	}
 
 	void Application::Shutdown()
@@ -40,7 +45,10 @@ namespace Engine {
 
 	void Application::OnEvent(Event& event)
 	{
+		EventDispatcher ed(event);
+		ed.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
+		ENGINE_TRACE(event.ToString());
 	}
 
 	void Application::Run()
@@ -50,7 +58,15 @@ namespace Engine {
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
+			
+
 			m_Window->OnUpdate();
 		}
+	}
+
+	bool Application::OnWindowClose(WindowCloseEvent& event)
+	{
+		m_Running = false;
+		return true;
 	}
 }
