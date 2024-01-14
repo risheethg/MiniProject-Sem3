@@ -27,12 +27,12 @@
     <ClInclude Include="src\Game\Log.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\Window\Window.h">
-      <Filter>Game\Window</Filter>
-    </ClInclude>
     <ClInclude Include="src\Game\pch.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="src\Game\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Game\Window\Window.h" />
+    <ClInclude Include="src\Game\Window\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp" />
@@ -42,11 +42,9 @@
     <ClCompile Include="src\Game\Log.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\Window\Window.cpp">
-      <Filter>Game\Window</Filter>
-    </ClCompile>
     <ClCompile Include="src\Game\pch.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\Window\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

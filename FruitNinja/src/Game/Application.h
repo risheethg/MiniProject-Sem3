@@ -1,7 +1,9 @@
 #pragma once
 
 #include "Events/Event.h"
+#include "Events/ApplicationEvent.h"
 #include "Window/Window.h"
+//#include "Window/WindowImpl.h"
 
 namespace Engine {
 
@@ -22,6 +24,8 @@ namespace Engine {
 		std::unique_ptr<Window> m_Window;
 
 		static Application* s_Instance;
+
+		bool OnWindowClose(WindowCloseEvent& event);
 	};
 
 }
