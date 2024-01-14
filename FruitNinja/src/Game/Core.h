@@ -1,4 +1,4 @@
 #pragma once
 
-#include <Game/Game.h>
+#include <Game/Application.h>
 #include <Game/Log.h>

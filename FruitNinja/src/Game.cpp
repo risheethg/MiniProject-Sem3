@@ -1,11 +1,11 @@
 ///////////////////////////
 ////////Entry Point///////
-
+#include "pch.h"
 #include "Game/Core.h"
 
 int main()
 {
-	Engine::Game* game = new Engine::Game;
+	Engine::Application* game = new Engine::Application;
 	game->Run();
 	delete game;
 

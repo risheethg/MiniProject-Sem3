@@ -4,25 +4,46 @@
     <Filter Include="Game">
       <UniqueIdentifier>{7FA9857C-6BE0-860D-14CD-6C1000E3020F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Events">
+      <UniqueIdentifier>{83D08B0A-EF85-0400-787A-FED6E42EFB03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Window">
+      <UniqueIdentifier>{8631A233-F2E6-1A29-7BDB-1400E78F112D}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Game\Game.h">
+    <ClInclude Include="src\Game\Application.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Core.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Events\Event.h">
+      <Filter>Game\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Events\MouseEvent.h">
+      <Filter>Game\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\Log.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Window\Window.h">
+      <Filter>Game\Window</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\pch.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\App.cpp" />
-    <ClCompile Include="src\Game\Game.cpp">
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Game\Application.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="src\Game\Log.cpp">
       <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Window\Window.cpp">
+      <Filter>Game\Window</Filter>
     </ClCompile>
     <ClCompile Include="src\Game\pch.cpp">
       <Filter>Game</Filter>

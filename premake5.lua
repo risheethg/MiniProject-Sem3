@@ -9,6 +9,13 @@ workspace "FruitNinja"
 
     outputdir = "%{cfg.buildcfg}-%{cfg.architecture}"
 
+    IncludeDir = {}
+    IncludeDir["GLFW"] = "FruitNinja/vendor/GLFW/include"
+    IncludeDir["Glad"] = "FruitNinja/vendor/Glad/include"
+
+    include "FruitNinja/vendor/Glad"
+    include "FruitNinja/vendor/GLFW"
+
     project "FruitNinja"
         location "FruitNinja"
         kind "ConsoleApp"
@@ -21,6 +28,12 @@ workspace "FruitNinja"
         pchheader "pch.h"
         pchsource "FruitNinja/src/Game/pch.cpp"
 
+        links
+        {
+            "GLFW",
+		    "Glad"
+        }
+
         files 
         {
             "%{prj.name}/src/**.h",
@@ -29,13 +42,18 @@ workspace "FruitNinja"
 
         defines
         {
-            "_CRT_SECURE_NO_WARNINGS"
+            "GLFW_INCLUDE_NONE",
+            "_CRT_SECURE_NO_WARNINGS",
+            "ENGINE_ENABLE_ASSERTS"
         }
 
         includedirs
         {
             "%{prj.name}/src",
-            "%{prj.name}/vendor/spdlog/include"
+            "%{prj.name}/src/Game",
+            "%{prj.name}/vendor/spdlog/include",
+            "%{IncludeDir.GLFW}",
+            "%{IncludeDir.Glad}"
         }
 
         filter "configurations:Debug"

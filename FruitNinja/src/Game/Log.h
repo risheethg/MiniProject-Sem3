@@ -31,3 +31,13 @@ namespace Engine {
 #define ENGINE_WARN(...)   ::Engine::Log::GetClientLogger()->warn(__VA_ARGS__);
 #define ENGINE_ERROR(...)  ::Engine::Log::GetClientLogger()->error(__VA_ARGS__);
 #define ENGINE_FATAL(...)  ::Engine::Log::GetClientLogger()->fatal(__VA_ARGS__);
+
+#ifdef ENGINE_ENABLE_ASSERTS
+#define ENGINE_ASSERT(x, ...) { if(!x) { ENGINE_ERROR("Assertion Failed {0}", __VA_ARGS__); __debugbreak();} }
+#define ENGINE_CORE_ASSERT(x, ...) { if(!x) { ENGINE_CORE_ERROR("Assertion Failed {0}", __VA_ARGS__); __debugbreak();} }
+#else 
+#define ENGINE_ASSERT(x, ...)
+#define ENGINE_CORE_ASSERT(x, ...)
+#endif
+
+#define ENGINE_EVENT_BIND_FN(Fn) std::bind(&Fn, this, std::placeholders::_1)
