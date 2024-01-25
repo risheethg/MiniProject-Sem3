@@ -12,6 +12,9 @@ workspace "FruitNinja"
     IncludeDir = {}
     IncludeDir["GLFW"] = "FruitNinja/vendor/GLFW/include"
     IncludeDir["Glad"] = "FruitNinja/vendor/Glad/include"
+    IncludeDir["glm"] = "FruitNinja/vendor/glm/glm"
+    IncludeDir["assimp"] = "FruitNinja/vendor/assimp/include"
+    IncludeDir["stb_image"] = "FruitNinja/vendor/stb_image"
 
     include "FruitNinja/vendor/Glad"
     include "FruitNinja/vendor/GLFW"
@@ -37,14 +40,17 @@ workspace "FruitNinja"
         files 
         {
             "%{prj.name}/src/**.h",
-            "%{prj.name}/src/**.cpp"
+            "%{prj.name}/src/**.cpp",
+            "%{prj.name}/vendor/glm/glm/*.hpp",
+            "%{prj.name}/vendor/glm/glm/*.inl"
         }
 
         defines
         {
             "GLFW_INCLUDE_NONE",
             "_CRT_SECURE_NO_WARNINGS",
-            "ENGINE_ENABLE_ASSERTS"
+            "ENGINE_ENABLE_ASSERTS",
+            "STB_IMAGE_IMPLEMENTATION"
         }
 
         includedirs
@@ -53,7 +59,15 @@ workspace "FruitNinja"
             "%{prj.name}/src/Game",
             "%{prj.name}/vendor/spdlog/include",
             "%{IncludeDir.GLFW}",
-            "%{IncludeDir.Glad}"
+            "%{IncludeDir.Glad}",
+            "%{IncludeDir.glm}",
+            "%{IncludeDir.assimp}",
+            "%{IncludeDir.stb_image}"
+        }
+        
+        libdirs
+        {
+            "vendor/libs/lib"
         }
 
         filter "configurations:Debug"

@@ -1,50 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Game">
-      <UniqueIdentifier>{7FA9857C-6BE0-860D-14CD-6C1000E3020F}</UniqueIdentifier>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Events">
-      <UniqueIdentifier>{83D08B0A-EF85-0400-787A-FED6E42EFB03}</UniqueIdentifier>
+    <Filter Include="src\Game">
+      <UniqueIdentifier>{F6C81ECF-E295-79DA-0BAF-6782F7DAAE68}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Window">
-      <UniqueIdentifier>{8631A233-F2E6-1A29-7BDB-1400E78F112D}</UniqueIdentifier>
+    <Filter Include="src\Game\Events">
+      <UniqueIdentifier>{1A046622-868F-D3E6-8FA0-56DBFBAA2FE7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\Layers">
+      <UniqueIdentifier>{F5EE4831-617A-B6F5-6A8B-39EAD69512F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\Renderer">
+      <UniqueIdentifier>{5C81F24A-C897-F0E0-110F-7C027D64C168}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\Window">
+      <UniqueIdentifier>{1D657C4B-89F0-E90F-9201-6D04FE0B4610}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor">
+      <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\glm">
+      <UniqueIdentifier>{829FC5A8-6E57-07F6-D75E-E051C335A2E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\glm\glm">
+      <UniqueIdentifier>{D11AC9C9-BDE8-BCCF-A67C-2DF692E99834}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game\Application.h">
-      <Filter>Game</Filter>
+      <Filter>src\Game</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\Core.h">
-      <Filter>Game</Filter>
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Events\ApplicationEvent.h">
+      <Filter>src\Game\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\Events\Event.h">
-      <Filter>Game\Events</Filter>
+      <Filter>src\Game\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\Events\MouseEvent.h">
-      <Filter>Game\Events</Filter>
+      <Filter>src\Game\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Layers\GameLayer.h">
+      <Filter>src\Game\Layers</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\Log.h">
-      <Filter>Game</Filter>
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Renderer\Mesh.h">
+      <Filter>src\Game\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Renderer\Model.h">
+      <Filter>src\Game\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Renderer\Shader.h">
+      <Filter>src\Game\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Window\Window.h">
+      <Filter>src\Game\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Window\WindowsWindow.h">
+      <Filter>src\Game\Window</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\pch.h">
-      <Filter>Game</Filter>
+      <Filter>src\Game</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\Game\Window\Window.h" />
-    <ClInclude Include="src\Game\Window\WindowsWindow.h" />
+    <ClInclude Include="vendor\glm\glm\common.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\exponential.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\ext.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\fwd.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\geometric.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\glm.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\integer.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\mat2x2.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\mat2x3.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\mat2x4.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\mat3x2.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\mat3x3.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\mat3x4.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\mat4x2.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\mat4x3.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\mat4x4.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\matrix.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\packing.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\trigonometric.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\vec2.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\vec3.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\vec4.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
+      <Filter>vendor\glm\glm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Game.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="src\Game\Application.cpp">
-      <Filter>Game</Filter>
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Layers\GameLayer.cpp">
+      <Filter>src\Game\Layers</Filter>
     </ClCompile>
     <ClCompile Include="src\Game\Log.cpp">
-      <Filter>Game</Filter>
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Renderer\Mesh.cpp">
+      <Filter>src\Game\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Renderer\Model.cpp">
+      <Filter>src\Game\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Renderer\Shader.cpp">
+      <Filter>src\Game\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Window\WindowsWindow.cpp">
+      <Filter>src\Game\Window</Filter>
     </ClCompile>
     <ClCompile Include="src\Game\pch.cpp">
-      <Filter>Game</Filter>
+      <Filter>src\Game</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\Window\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

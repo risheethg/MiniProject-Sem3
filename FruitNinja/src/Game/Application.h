@@ -2,8 +2,10 @@
 
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
+
 #include "Window/Window.h"
-//#include "Window/WindowImpl.h"
+
+#include "Layers/GameLayer.h"
 
 namespace Engine {
 
@@ -24,6 +26,8 @@ namespace Engine {
 		std::unique_ptr<Window> m_Window;
 
 		static Application* s_Instance;
+
+		GameLayer gamelayer;
 
 		bool OnWindowClose(WindowCloseEvent& event);
 	};

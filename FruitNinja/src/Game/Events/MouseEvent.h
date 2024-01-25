@@ -19,7 +19,7 @@ namespace Engine {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseMoveEvent: " << GetXPos() << " ," << GetYPos();
+			ss << "MouseMoveEvent: " << "(" << GetXPos() << " ," << GetYPos() << ")";
 			return ss.str();
 		}
 	private:

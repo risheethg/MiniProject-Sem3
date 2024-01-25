@@ -1,5 +1,9 @@
-D:\Dev\FruitNinja\FruitNinja\src\Game.cpp;D:\Dev\FruitNinja\bin-int\Debug-x86_64\FruitNinja\Game.obj
-D:\Dev\FruitNinja\FruitNinja\src\Game\Application.cpp;D:\Dev\FruitNinja\bin-int\Debug-x86_64\FruitNinja\Application.obj
-D:\Dev\FruitNinja\FruitNinja\src\Game\Log.cpp;D:\Dev\FruitNinja\bin-int\Debug-x86_64\FruitNinja\Log.obj
-D:\Dev\FruitNinja\FruitNinja\src\Game\pch.cpp;D:\Dev\FruitNinja\bin-int\Debug-x86_64\FruitNinja\pch.obj
-D:\Dev\FruitNinja\FruitNinja\src\Game\Window\WindowsWindow.cpp;D:\Dev\FruitNinja\bin-int\Debug-x86_64\FruitNinja\WindowsWindow.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Game.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Application.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Application.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Layers\GameLayer.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\GameLayer.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Log.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Log.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Renderer\Mesh.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Mesh.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Renderer\Model.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Model.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Renderer\Shader.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Shader.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Window\WindowsWindow.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\WindowsWindow.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\pch.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\pch.obj

@@ -6,6 +6,8 @@
 #include "Events/MouseEvent.h"
 #include "Events/ApplicationEvent.h"
 
+#include "Layers/GameLayer.h"
+
 #include <glad/glad.h>
 
 namespace Engine {
@@ -46,8 +48,11 @@ namespace Engine {
 	{
 		EventDispatcher ed(event);
 		ed.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+		
+		if (event.m_Handled == false)
+			gamelayer.OnEvent(event);
 
-		ENGINE_TRACE(event.ToString());
+		//ENGINE_TRACE(event.ToString());
 	}
 
 	void Application::Run()
@@ -57,9 +62,8 @@ namespace Engine {
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			
-
 			m_Window->OnUpdate();
+			gamelayer.OnUpdate();
 		}
 	}
 

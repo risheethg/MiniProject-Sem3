@@ -58,8 +58,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>GLFW_INCLUDE_NONE;_CRT_SECURE_NO_WARNINGS;ENGINE_ENABLE_ASSERTS;FN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;src\Game;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GLFW_INCLUDE_NONE;_CRT_SECURE_NO_WARNINGS;ENGINE_ENABLE_ASSERTS;STB_IMAGE_IMPLEMENTATION;FN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;src\Game;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\glm\glm;vendor\assimp\include;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
@@ -69,6 +69,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\vendor\libs\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc143-mtd.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -76,8 +78,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>GLFW_INCLUDE_NONE;_CRT_SECURE_NO_WARNINGS;ENGINE_ENABLE_ASSERTS;FN_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;src\Game;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GLFW_INCLUDE_NONE;_CRT_SECURE_NO_WARNINGS;ENGINE_ENABLE_ASSERTS;STB_IMAGE_IMPLEMENTATION;FN_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;src\Game;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\glm\glm;vendor\assimp\include;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -91,6 +93,8 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\vendor\libs\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc143-mtd.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -99,19 +103,50 @@
     <ClInclude Include="src\Game\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Game\Events\Event.h" />
     <ClInclude Include="src\Game\Events\MouseEvent.h" />
+    <ClInclude Include="src\Game\Layers\GameLayer.h" />
     <ClInclude Include="src\Game\Log.h" />
-    <ClInclude Include="src\Game\pch.h" />
+    <ClInclude Include="src\Game\Renderer\Mesh.h" />
+    <ClInclude Include="src\Game\Renderer\Model.h" />
+    <ClInclude Include="src\Game\Renderer\Shader.h" />
     <ClInclude Include="src\Game\Window\Window.h" />
     <ClInclude Include="src\Game\Window\WindowsWindow.h" />
+    <ClInclude Include="src\Game\pch.h" />
+    <ClInclude Include="vendor\glm\glm\common.hpp" />
+    <ClInclude Include="vendor\glm\glm\exponential.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext.hpp" />
+    <ClInclude Include="vendor\glm\glm\fwd.hpp" />
+    <ClInclude Include="vendor\glm\glm\geometric.hpp" />
+    <ClInclude Include="vendor\glm\glm\glm.hpp" />
+    <ClInclude Include="vendor\glm\glm\integer.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat2x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat2x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat2x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat3x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat3x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat3x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat4x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat4x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat4x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\matrix.hpp" />
+    <ClInclude Include="vendor\glm\glm\packing.hpp" />
+    <ClInclude Include="vendor\glm\glm\trigonometric.hpp" />
+    <ClInclude Include="vendor\glm\glm\vec2.hpp" />
+    <ClInclude Include="vendor\glm\glm\vec3.hpp" />
+    <ClInclude Include="vendor\glm\glm\vec4.hpp" />
+    <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Game\Application.cpp" />
+    <ClCompile Include="src\Game\Layers\GameLayer.cpp" />
     <ClCompile Include="src\Game\Log.cpp" />
+    <ClCompile Include="src\Game\Renderer\Mesh.cpp" />
+    <ClCompile Include="src\Game\Renderer\Model.cpp" />
+    <ClCompile Include="src\Game\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Game\Window\WindowsWindow.cpp" />
     <ClCompile Include="src\Game\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Game\Window\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
