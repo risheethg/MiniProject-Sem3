@@ -8,7 +8,7 @@ namespace Engine {
 	void Mesh::SetUpMesh()
 	{
 		glCreateVertexArrays(1, &m_VertexArray);
-		
+
 		glCreateBuffers(1, &m_VertexArray);
 		glCreateBuffers(1, &m_IndexBuffer);
 
@@ -23,9 +23,18 @@ namespace Engine {
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
 		glEnableVertexAttribArray(1);
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(Vertex)-sizeof(Vertex::Normal)));
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
 		glEnableVertexAttribArray(2);
-		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(Vertex) - sizeof(Vertex::TexCoords)));
+		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
+		glEnableVertexAttribArray(3);
+		glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Tangent));
+		glEnableVertexAttribArray(4);
+		glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Bitangent));
+		glEnableVertexAttribArray(5);
+		glVertexAttribIPointer(5, 4, GL_INT, sizeof(Vertex), (void*)offsetof(Vertex, m_BoneIDs));
+		glEnableVertexAttribArray(6);
+		glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, m_Weights));
+		glBindVertexArray(0);
 
 		glBindVertexArray(0);
 	}
@@ -34,11 +43,13 @@ namespace Engine {
 	{
 		unsigned int diffuseNr = 1;
 		unsigned int specularNr = 1;
+		unsigned int normalNr = 1;
+		unsigned int heightNr = 1;
 
 		for (unsigned int i = 0; i < m_Textures.size(); i++)
 		{
 			glActiveTexture(GL_TEXTURE0 + i);
-			
+
 			std::string number;
 			std::string name = m_Textures[i].type;
 
@@ -50,12 +61,24 @@ namespace Engine {
 			{
 				number = std::to_string(specularNr++);
 			}
-			
+			else if (name == "texture_normal")
+			{
+				number = std::to_string(normalNr++);
+			}
+			else if (name == "texture_height")
+			{
+				number = std::to_string(heightNr++);
+			}
+
 			//temp fix to fix covnersion error
 			std::string val = "material" + name = number;
 			shader.SetInt(val, i);
 			glBindTexture(GL_TEXTURE_2D, m_Textures[i].id);
 		}
-	}
+		glBindVertexArray(m_VertexArray);
+		glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(m_Indices.size()), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(0);
 
+		glActiveTexture(GL_TEXTURE0);
+	}
 }

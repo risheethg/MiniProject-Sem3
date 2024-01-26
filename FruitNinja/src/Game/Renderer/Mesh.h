@@ -12,6 +12,10 @@ namespace Engine {
 		glm::vec3 Position;
 		glm::vec3 Normal;
 		glm::vec2 TexCoords;
+		glm::vec3 Tangent;
+		glm::vec3 Bitangent;
+		int m_BoneIDs[4];
+		float m_Weights[4];
 	};
 
 	struct Texture
@@ -31,9 +35,11 @@ namespace Engine {
 		std::vector<unsigned int> m_Indices;
 		std::vector<Texture> m_Textures;
 
+		unsigned int m_VertexArray;
+
 		void Draw(Shader& shader);
 	private:
-		unsigned int m_VertexBuffer, m_IndexBuffer, m_VertexArray;
+		unsigned int m_VertexBuffer, m_IndexBuffer;
 
 		void SetUpMesh();
 	};

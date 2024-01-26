@@ -49,8 +49,7 @@ workspace "FruitNinja"
         {
             "GLFW_INCLUDE_NONE",
             "_CRT_SECURE_NO_WARNINGS",
-            "ENGINE_ENABLE_ASSERTS",
-            "STB_IMAGE_IMPLEMENTATION"
+            "ENGINE_ENABLE_ASSERTS"
         }
 
         includedirs
@@ -69,6 +68,11 @@ workspace "FruitNinja"
         {
             "vendor/libs/lib"
         }
+
+        --postbuildcommands
+        --{
+        --    "{COPY} vendor/libs/lib/assimp-vc143-mtd.dll bin/%{cfg.buildcfg}-%{cfg.architecture}/%{prj.name}"
+        --}
 
         filter "configurations:Debug"
             defines "FN_DEBUG"

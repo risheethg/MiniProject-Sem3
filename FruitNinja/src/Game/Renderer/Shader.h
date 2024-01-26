@@ -20,7 +20,7 @@ namespace Engine {
 		void Unbind() const;
 		unsigned int GetID() const { return m_RendererID; }
 
-		void SetInt(std::string& name, int value) const;
+		void SetInt(const std::string& name, int value) const;
 	private:
 		int m_RendererID;
 		std::string m_FilePath;

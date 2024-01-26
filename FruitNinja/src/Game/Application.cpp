@@ -7,6 +7,11 @@
 #include "Events/ApplicationEvent.h"
 
 #include "Layers/GameLayer.h"
+#include "Renderer/Shader.h"
+
+#include "stb_image.h"
+
+#include "Gameplay/Pastry.h"
 
 #include <glad/glad.h>
 
@@ -33,15 +38,13 @@ namespace Engine {
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+		bg = new Background("res/images/background_res_ref.jpg");
 	}
 
 	void Application::Shutdown()
 	{
-		/*
-		glfw.shutdown()
-		window.shutdown()
-		sound.shutdown()
-		*/
+		delete bg;
 	}
 
 	void Application::OnEvent(Event& event)
@@ -61,6 +64,8 @@ namespace Engine {
 		{
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+			
+			bg->Draw();
 
 			m_Window->OnUpdate();
 			gamelayer.OnUpdate();

@@ -138,6 +138,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Game\Gameplay\Actor.h" />
+    <ClInclude Include="src\Game\Gameplay\Pastry.h" />
+    <ClInclude Include="src\Game\Gameplay\Background.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -167,5 +170,8 @@
     <ClCompile Include="src\Game\pch.cpp">
       <Filter>src\Game</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\Gameplay\Actor.cpp" />
+    <ClCompile Include="src\Game\Gameplay\Pastry.cpp" />
+    <ClCompile Include="src\Game\Gameplay\Background.cpp" />
   </ItemGroup>
 </Project>
