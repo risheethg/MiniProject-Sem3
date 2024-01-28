@@ -5,11 +5,9 @@
 
 #include "Window/Window.h"
 
-#include "Renderer/Renderer.h"
-
 #include "Layers/GameLayer.h"
 
-#include "Gameplay/Background.h"
+#include "GameManager/GameManager.h"
 
 namespace Engine {
 
@@ -27,15 +25,15 @@ namespace Engine {
 		void Run();
 	private:
 		bool m_Running = true;
-		std::unique_ptr<Window> m_Window;
 		
+		std::unique_ptr<Window> m_Window;
+
 		static Application* s_Instance;
+		GameManager* m_GameManager;
 
 		GameLayer gamelayer;
 
 		bool OnWindowClose(WindowCloseEvent& event);
-
-		Background* bg;
 	};
 
 }

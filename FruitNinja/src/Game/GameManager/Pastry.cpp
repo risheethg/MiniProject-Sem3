@@ -16,11 +16,9 @@ namespace Engine {
 		}
 	}
 
-	void Pastry::Draw(Shader& shader)
+	void Pastry::Draw(Shader* shader)
 	{
-		shader.Bind();
-		m_Model.Draw(shader);
-		shader.Unbind();
+		m_Model->Draw(shader);
 	}
 
 }

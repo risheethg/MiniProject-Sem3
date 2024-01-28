@@ -7,13 +7,9 @@
 #include "Events/ApplicationEvent.h"
 
 #include "Layers/GameLayer.h"
-#include "Renderer/Shader.h"
 
-#include "stb_image.h"
 
-#include "Gameplay/Pastry.h"
 
-#include <glad/glad.h>
 
 namespace Engine {
 
@@ -33,18 +29,22 @@ namespace Engine {
 
 	void Application::Init()
 	{
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 		Log::Init();
 		ENGINE_CORE_WARN("Logger Initialized!");
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
-		bg = new Background("res/images/background_res_ref.jpg");
+		m_GameManager = new GameManager();
 	}
 
 	void Application::Shutdown()
 	{
-		delete bg;
+		//Delete
+		delete m_GameManager;
 	}
 
 	void Application::OnEvent(Event& event)
@@ -54,21 +54,15 @@ namespace Engine {
 		
 		if (event.m_Handled == false)
 			gamelayer.OnEvent(event);
-
-		//ENGINE_TRACE(event.ToString());
 	}
 
 	void Application::Run()
 	{
 		while (m_Running)
 		{
-			glClearColor(1, 0, 1, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-			
-			bg->Draw();
-
 			m_Window->OnUpdate();
 			gamelayer.OnUpdate();
+			m_GameManager->Run();
 		}
 	}
 

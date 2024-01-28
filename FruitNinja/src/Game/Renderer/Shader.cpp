@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "Shader.h"
 
-#include <glad/glad.h>
-
 namespace Engine {
 
 	Shader::Shader(const std::string& filepath)
@@ -105,6 +103,11 @@ namespace Engine {
 	void Shader::SetInt(const std::string& name, int value) const
 	{
 		glUniform1i(glGetUniformLocation(m_RendererID, name.c_str()), value);
+	}
+
+	void Shader::SetFloat(const std::string& name, float value) const
+	{
+		glUniform1f(glGetUniformLocation(m_RendererID, name.c_str()), value);
 	}
 
 }

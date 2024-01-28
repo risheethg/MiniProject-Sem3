@@ -3,7 +3,8 @@
 
 #include "Shader.h"
 
-#include "glm.hpp"
+#include <glm.hpp>
+#include <gtc/matrix_transform.hpp>
 
 namespace Engine {
 
@@ -28,8 +29,9 @@ namespace Engine {
 	class Mesh
 	{
 	public:
-		Mesh(std::vector<Vertex> v, std::vector<unsigned int> i, std::vector<Texture> t)
-			: m_Vertices(v), m_Indices(i), m_Textures(t) { SetUpMesh(); }
+		Mesh(std::vector<Vertex> v, std::vector<unsigned int> i, std::vector<Texture> t);
+		//	: m_Vertices(v), m_Indices(i), m_Textures(t) { SetUpMesh(); }
+		~Mesh();
 
 		std::vector<Vertex> m_Vertices;
 		std::vector<unsigned int> m_Indices;
@@ -37,7 +39,7 @@ namespace Engine {
 
 		unsigned int m_VertexArray;
 
-		void Draw(Shader& shader);
+		void Draw(Shader* shader);
 	private:
 		unsigned int m_VertexBuffer, m_IndexBuffer;
 

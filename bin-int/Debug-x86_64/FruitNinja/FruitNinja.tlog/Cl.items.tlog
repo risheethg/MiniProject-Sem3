@@ -1,6 +1,7 @@
-D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Gameplay\Background.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Background.obj
-D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Gameplay\Pastry.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Pastry.obj
-D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Gameplay\Actor.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Actor.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\GameManager\SceneManager.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\SceneManager.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\GameManager\GameManager.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\GameManager.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\GameManager\Pastry.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Pastry.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\GameManager\Actor.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Actor.obj
 D:\Dev\Mini Project Sem 3\FruitNinja\src\Game.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Game.obj
 D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Application.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Application.obj
 D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Layers\GameLayer.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\GameLayer.obj
@@ -10,3 +11,4 @@ D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Renderer\Model.cpp;D:\Dev\Mini Pro
 D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Renderer\Shader.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\Shader.obj
 D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Window\WindowsWindow.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\WindowsWindow.obj
 D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\pch.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\pch.obj
+D:\Dev\Mini Project Sem 3\FruitNinja\src\Game\Renderer\TexturePlane.cpp;D:\Dev\Mini Project Sem 3\bin-int\Debug-x86_64\FruitNinja\TexturePlane.obj

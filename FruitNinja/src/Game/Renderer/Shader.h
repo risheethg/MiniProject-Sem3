@@ -21,6 +21,7 @@ namespace Engine {
 		unsigned int GetID() const { return m_RendererID; }
 
 		void SetInt(const std::string& name, int value) const;
+		void SetFloat(const std::string& name, float value) const;
 	private:
 		int m_RendererID;
 		std::string m_FilePath;

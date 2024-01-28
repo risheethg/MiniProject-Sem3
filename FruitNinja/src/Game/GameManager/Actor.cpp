@@ -13,7 +13,7 @@ namespace Engine {
 
 	}
 
-	void Actor::Draw(Shader& shader)
+	void Actor::Draw(Shader* shader)
 	{
 
 	}

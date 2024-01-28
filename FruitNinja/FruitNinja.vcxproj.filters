@@ -138,9 +138,11 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\Gameplay\Actor.h" />
-    <ClInclude Include="src\Game\Gameplay\Pastry.h" />
-    <ClInclude Include="src\Game\Gameplay\Background.h" />
+    <ClInclude Include="src\Game\GameManager\Actor.h" />
+    <ClInclude Include="src\Game\GameManager\Pastry.h" />
+    <ClInclude Include="src\Game\GameManager\GameManager.h" />
+    <ClInclude Include="src\Game\GameManager\SceneManager.h" />
+    <ClInclude Include="src\Game\Renderer\TexturePlane.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -170,8 +172,10 @@
     <ClCompile Include="src\Game\pch.cpp">
       <Filter>src\Game</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\Gameplay\Actor.cpp" />
-    <ClCompile Include="src\Game\Gameplay\Pastry.cpp" />
-    <ClCompile Include="src\Game\Gameplay\Background.cpp" />
+    <ClCompile Include="src\Game\GameManager\Actor.cpp" />
+    <ClCompile Include="src\Game\GameManager\Pastry.cpp" />
+    <ClCompile Include="src\Game\GameManager\GameManager.cpp" />
+    <ClCompile Include="src\Game\GameManager\SceneManager.cpp" />
+    <ClCompile Include="src\Game\Renderer\TexturePlane.cpp" />
   </ItemGroup>
 </Project>

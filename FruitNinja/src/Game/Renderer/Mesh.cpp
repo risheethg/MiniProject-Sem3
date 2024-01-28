@@ -1,9 +1,25 @@
 #include "pch.h"
 #include "Mesh.h"
 
-#include <glad/glad.h>
-
 namespace Engine {
+
+	Mesh::Mesh(std::vector<Vertex> v, std::vector<unsigned int> i, std::vector<Texture> t)
+	{
+		this->m_Vertices = v;
+		this->m_Indices = i;
+		this->m_Textures = t;
+
+		SetUpMesh();
+	}
+
+	Mesh::~Mesh()
+	{
+		/*glBindBuffer(GL_ARRAY_BUFFER, 0);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+		glDeleteBuffers(1, &m_VertexBuffer);
+		glDeleteBuffers(1, &m_IndexBuffer); */
+	}
 
 	void Mesh::SetUpMesh()
 	{
@@ -20,26 +36,33 @@ namespace Engine {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_Indices.size() * sizeof(unsigned int), &m_Indices[0], GL_STATIC_DRAW);
 
+		// set the vertex attribute pointers
+		// vertex Positions
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+		// vertex normals
 		glEnableVertexAttribArray(1);
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
+		// vertex texture coords
 		glEnableVertexAttribArray(2);
 		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
+		// vertex tangent
 		glEnableVertexAttribArray(3);
 		glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Tangent));
+		// vertex bitangent
 		glEnableVertexAttribArray(4);
 		glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Bitangent));
+		// ids
 		glEnableVertexAttribArray(5);
 		glVertexAttribIPointer(5, 4, GL_INT, sizeof(Vertex), (void*)offsetof(Vertex, m_BoneIDs));
+		// weights
 		glEnableVertexAttribArray(6);
 		glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, m_Weights));
-		glBindVertexArray(0);
-
+		
 		glBindVertexArray(0);
 	}
 
-	void Mesh::Draw(Shader& shader)
+	void Mesh::Draw(Shader* shader)
 	{
 		unsigned int diffuseNr = 1;
 		unsigned int specularNr = 1;
@@ -69,13 +92,12 @@ namespace Engine {
 			{
 				number = std::to_string(heightNr++);
 			}
-
-			//temp fix to fix covnersion error
-			std::string val = "material" + name = number;
-			shader.SetInt(val, i);
+			
+			shader->SetInt((name + number).c_str(), i);
 			glBindTexture(GL_TEXTURE_2D, m_Textures[i].id);
 		}
 		glBindVertexArray(m_VertexArray);
+		
 		glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(m_Indices.size()), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 

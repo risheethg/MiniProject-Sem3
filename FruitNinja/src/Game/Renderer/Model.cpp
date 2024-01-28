@@ -1,20 +1,18 @@
 #include "pch.h"
 #include "Model.h"
 
-#include <glad/glad.h>
-
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include "Log.h"
 
 namespace Engine {
 
-	Model::Model(char* path)
+	Model::Model(const char* path)
 	{
 		LoadModel(path);
 	}
 
-	void Model::Draw(Shader& shader)
+	void Model::Draw(Shader* shader)
 	{
 		for (unsigned int i = 0; i < m_Meshes.size(); i++)
 		{
@@ -22,12 +20,12 @@ namespace Engine {
 		}
 	}
 
-	void Model::LoadModel(std::string path)
+	void Model::LoadModel(std::string const path)
 	{
 		Assimp::Importer import;
-		const aiScene* scene = import.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
+		const aiScene* scene = import.ReadFile(path, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
 
-		if (!scene || !scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
+		if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 		{
 			std::cout << "ERROR:Assimp" << import.GetErrorString() << std::endl;
 			return;
@@ -67,10 +65,12 @@ namespace Engine {
 			vector.z = mesh->mVertices[i].z;
 			vertex.Position = vector;
 
-			vector.x = mesh->mNormals[i].x;
-			vector.y = mesh->mNormals[i].y;
-			vector.z = mesh->mNormals[i].z;
-			vertex.Normal = vector;
+			if (mesh->HasNormals()) {
+				vector.x = mesh->mNormals[i].x;
+				vector.y = mesh->mNormals[i].y;
+				vector.z = mesh->mNormals[i].z;
+				vertex.Normal = vector;
+			}
 
 			if (mesh->mTextureCoords[0])
 			{
@@ -101,7 +101,7 @@ namespace Engine {
 			aiFace face = mesh->mFaces[i];
 			for (unsigned int j = 0; j < face.mNumIndices; j++)
 			{
-				indices.push_back(face.mIndices[i]);
+				indices.push_back(face.mIndices[j]);
 			}
 		}
 
