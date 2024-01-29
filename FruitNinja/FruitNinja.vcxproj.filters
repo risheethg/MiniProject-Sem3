@@ -51,12 +51,6 @@
     <ClInclude Include="src\Game\Log.h">
       <Filter>src\Game</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\Renderer\Mesh.h">
-      <Filter>src\Game\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\Renderer\Model.h">
-      <Filter>src\Game\Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="src\Game\Renderer\Shader.h">
       <Filter>src\Game\Renderer</Filter>
     </ClInclude>
@@ -143,6 +137,8 @@
     <ClInclude Include="src\Game\GameManager\GameManager.h" />
     <ClInclude Include="src\Game\GameManager\SceneManager.h" />
     <ClInclude Include="src\Game\Renderer\TexturePlane.h" />
+    <ClInclude Include="src\Game\Renderer\Model.h" />
+    <ClInclude Include="src\Game\Renderer\Mesh.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -156,12 +152,6 @@
     </ClCompile>
     <ClCompile Include="src\Game\Log.cpp">
       <Filter>src\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\Renderer\Mesh.cpp">
-      <Filter>src\Game\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\Renderer\Model.cpp">
-      <Filter>src\Game\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Game\Renderer\Shader.cpp">
       <Filter>src\Game\Renderer</Filter>
@@ -177,5 +167,7 @@
     <ClCompile Include="src\Game\GameManager\GameManager.cpp" />
     <ClCompile Include="src\Game\GameManager\SceneManager.cpp" />
     <ClCompile Include="src\Game\Renderer\TexturePlane.cpp" />
+    <ClCompile Include="src\Game\Renderer\Model.cpp" />
+    <ClCompile Include="src\Game\Renderer\Mesh.cpp" />
   </ItemGroup>
 </Project>

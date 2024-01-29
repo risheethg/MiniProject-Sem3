@@ -1,5 +1,5 @@
 #pragma once
-#include "pch.h"
+#include "pch.h" 
 
 #include "Shader.h"
 
@@ -7,44 +7,47 @@
 #include <gtc/matrix_transform.hpp>
 
 namespace Engine {
+    using namespace std;
 
-	struct Vertex
-	{
-		glm::vec3 Position;
-		glm::vec3 Normal;
-		glm::vec2 TexCoords;
-		glm::vec3 Tangent;
-		glm::vec3 Bitangent;
-		int m_BoneIDs[4];
-		float m_Weights[4];
-	};
+#define MAX_BONE_INFLUENCE 4
 
-	struct Texture
-	{
-		unsigned int id;
-		std::string type;
-		std::string path;
-	};
+    struct Vertex {
+       
+        glm::vec3 Position;
+        glm::vec3 Normal;
+        glm::vec2 TexCoords;
+        glm::vec3 Tangent;
+        glm::vec3 Bitangent;
+        int m_BoneIDs[MAX_BONE_INFLUENCE];
+        float m_Weights[MAX_BONE_INFLUENCE];
+    };
 
-	class Mesh
-	{
-	public:
-		Mesh(std::vector<Vertex> v, std::vector<unsigned int> i, std::vector<Texture> t);
-		//	: m_Vertices(v), m_Indices(i), m_Textures(t) { SetUpMesh(); }
-		~Mesh();
+    struct Texture {
+        unsigned int id;
+        string type;
+        string path;
+    };
 
-		std::vector<Vertex> m_Vertices;
-		std::vector<unsigned int> m_Indices;
-		std::vector<Texture> m_Textures;
+    class Mesh {
+    public:
+        // mesh Data
+        vector<Vertex>       vertices;
+        vector<unsigned int> indices;
+        vector<Texture>      textures;
+        unsigned int VAO;
 
-		unsigned int m_VertexArray;
+        // constructor
+        Mesh(vector<Vertex> vertices, vector<unsigned int> indices, vector<Texture> textures);
 
-		void Draw(Shader* shader);
-	private:
-		unsigned int m_VertexBuffer, m_IndexBuffer;
+        // render the mesh
+        void Draw(Shader* shader);
 
-		void SetUpMesh();
-	};
+    private:
+        // render data 
+        unsigned int VBO, EBO;
+
+        // initializes all the buffer objects/arrays
+        void setupMesh();
+    };
 
 }
-

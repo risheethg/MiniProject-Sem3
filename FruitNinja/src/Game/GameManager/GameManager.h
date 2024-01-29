@@ -6,12 +6,14 @@
 #include "Renderer/Model.h"
 #include "Renderer/TexturePlane.h"
 
+#include "Window/Window.h"
+
 namespace Engine {
 
 	enum class PastryModel
 	{
 		NONE = -1,
-		BISCUIT, MACARON,
+		GINGERBREAD, BISCUIT,
 	};
 
 	class GameManager
@@ -29,6 +31,7 @@ namespace Engine {
 		TexturePlane* m_TBackground;
 		Pastry* m_PMacaron;
 		Pastry* m_PBiscuit;
+		Pastry* m_PGingerbread;
 
 		SceneManager* m_SceneManager;
 	};

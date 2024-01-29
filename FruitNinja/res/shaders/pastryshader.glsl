@@ -7,12 +7,14 @@ layout (location = 2) in vec2 aTexCoords;
 
 out vec2 TexCoords;
 
-uniform float uPosition;
+uniform mat4 uModel;
+uniform mat4 uView;
+uniform mat4 uProjection;
 
 void main()
 {
     TexCoords = aTexCoords;    
-    gl_Position = vec4(uPosition, 0.0, 0.0, 0.0);
+    gl_Position = uProjection * uView * uModel * aPos;
 }
 
 #shader fragment 

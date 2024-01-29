@@ -1,0 +1,57 @@
+# Blender MTL File: 'None'
+# Material Count: 5
+
+newmtl Frosting_Eyes
+Ns 846.400031
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.041477 0.021052
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Frosting_Eyes Base Color.jpg
+
+newmtl Frosting_blue
+Ns 349.173592
+Ka 1.000000 1.000000 1.000000
+Kd 0.247025 0.593281 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Frosting_blue Base Color.jpg
+
+newmtl Frosting_purple
+Ns 678.376842
+Ka 1.000000 1.000000 1.000000
+Kd 0.318547 0.162029 0.412543
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Frosting_purple Base Color.png
+
+newmtl Frosting_red
+Ns 235.666129
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 0.065910 0.051599
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Frosting_red Base Color.jpg
+
+newmtl Gingerbread
+Ns 307.520670
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.319941 0.116466
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Gingerbread Base Color.jpg
