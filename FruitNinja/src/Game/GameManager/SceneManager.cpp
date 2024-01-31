@@ -14,12 +14,8 @@ namespace Engine {
 		m_CameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 		m_CameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
-		m_ProjectionMatrix = glm::perspective(glm::radians(45.0f), (float)1280 / (float)720, 1.0f, 100.0f);
+		m_ProjectionMatrix = glm::perspective(glm::radians(90.0f), (float)1280 / (float)720, 1.0f, 100.0f);
 		m_ViewMatrix = glm::lookAt(m_CameraPos, m_CameraPos + m_CameraFront, m_CameraUp);
-		m_ModelMatrix = glm::mat4(1.0f);
-		m_ModelMatrix = glm::translate(m_ModelMatrix, glm::vec3(0.0f, -0.5f, 3.5f)); ///Change it up
-		m_ModelMatrix = glm::scale(m_ModelMatrix, glm::vec3(0.3f, 0.3f, 0.3f));
-		m_ModelMatrix = glm::rotate(m_ModelMatrix, glm::radians(-90.0f), glm::vec3(0.0f, -0.0f, 0.3f));
 	}
 
 	SceneManager::~SceneManager()
@@ -28,7 +24,12 @@ namespace Engine {
 		delete BackgroundShader;
 	}
 
-	void SceneManager::Draw(Pastry* model)
+	void SceneManager::Push(Pastry* pastry)
+	{
+		m_GameObjects.push_back(pastry);
+	}
+
+	void SceneManager::RawDraw(Pastry* model)
 	{
 		ModelShader->Bind();
 		ModelShader->SetMat4("uProjection", m_ProjectionMatrix);
@@ -38,20 +39,29 @@ namespace Engine {
 		ModelShader->Unbind();
 	}
 	
-	/*
-	void SceneManager::Draw(Pastry* model, glm::vec3 translate, glm::vec3 scale, float rotate)
+	void SceneManager::Draw(Pastry* model, glm::vec3 translate, glm::vec3 scale, float rotationDegrees, glm::vec3 rotation)
 	{
 		ModelShader->Bind();
 		ModelShader->SetMat4("uProjection", m_ProjectionMatrix);
 		ModelShader->SetMat4("uView", m_ViewMatrix);
 		m_ModelMatrix = glm::translate(m_ModelMatrix, translate);
 		m_ModelMatrix = glm::scale(m_ModelMatrix, scale);
-		m_ModelMatrix = glm::rotate(m_ModelMatrix, glm::radians(rotate), glm::vec3(0.0f, 1.0f, 0.0f));
+		m_ModelMatrix = glm::rotate(m_ModelMatrix, glm::radians(rotationDegrees), rotation);
 		ModelShader->SetMat4("uModel", m_ModelMatrix);
 		model->Draw(ModelShader);
 		ModelShader->Unbind();
 	}
-	*/
+
+	void SceneManager::DrawWithProps(Pastry* model, const DrawProps& Props)
+	{
+		ModelShader->Bind();
+		ModelShader->SetMat4("uProjection", m_ProjectionMatrix);
+		ModelShader->SetMat4("uView", m_ViewMatrix);
+		m_ModelMatrix = glm::translate(m_ModelMatrix, Props.Position);
+		ModelShader->SetMat4("uModel", m_ModelMatrix);
+		model->Draw(ModelShader);
+		ModelShader->Unbind();
+	}
 
 	void SceneManager::DrawBackground(TexturePlane* texture)
 	{
@@ -61,7 +71,7 @@ namespace Engine {
 	}
 	void SceneManager::Clear()
 	{
-		glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
+		glClearColor(0.5f, 0.5f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 }

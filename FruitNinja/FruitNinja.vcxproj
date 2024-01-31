@@ -98,6 +98,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Game\GameManager\Utility\Random.h" />
     <ClInclude Include="src\Game\GameManager\SceneManager.h" />
     <ClInclude Include="src\Game\GameManager\GameManager.h" />
     <ClInclude Include="src\Game\GameManager\Pastry.h" />
@@ -107,6 +108,7 @@
     <ClInclude Include="src\Game\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Game\Events\Event.h" />
     <ClInclude Include="src\Game\Events\MouseEvent.h" />
+    <ClInclude Include="src\Game\GameManager\Utility\Timer.h" />
     <ClInclude Include="src\Game\Layers\GameLayer.h" />
     <ClInclude Include="src\Game\Log.h" />
     <ClInclude Include="src\Game\Renderer\Mesh.h" />
@@ -141,6 +143,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Game\GameManager\Utility\Random.cpp" />
     <ClCompile Include="src\Game\GameManager\SceneManager.cpp" />
     <ClCompile Include="src\Game\GameManager\GameManager.cpp" />
     <ClCompile Include="src\Game\GameManager\Pastry.cpp" />

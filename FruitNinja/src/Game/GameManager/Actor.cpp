@@ -3,7 +3,7 @@
 
 namespace Engine {
 
-	void Actor::OnUpdate()
+	void Actor::OnUpdate(float dt)
 	{
 
 	}

@@ -139,6 +139,8 @@
     <ClInclude Include="src\Game\Renderer\TexturePlane.h" />
     <ClInclude Include="src\Game\Renderer\Model.h" />
     <ClInclude Include="src\Game\Renderer\Mesh.h" />
+    <ClInclude Include="src\Game\GameManager\Utility\Random.h" />
+    <ClInclude Include="src\Game\GameManager\Utility\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -169,5 +171,6 @@
     <ClCompile Include="src\Game\Renderer\TexturePlane.cpp" />
     <ClCompile Include="src\Game\Renderer\Model.cpp" />
     <ClCompile Include="src\Game\Renderer\Mesh.cpp" />
+    <ClCompile Include="src\Game\GameManager\Utility\Random.cpp" />
   </ItemGroup>
 </Project>

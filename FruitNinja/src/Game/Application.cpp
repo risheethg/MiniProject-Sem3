@@ -8,14 +8,13 @@
 
 #include "Layers/GameLayer.h"
 
-
-
-
 namespace Engine {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
+
+	float Application::s_DeltaTime = 0;
 
 	Application::Application()
 	{
@@ -29,9 +28,6 @@ namespace Engine {
 
 	void Application::Init()
 	{
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 		Log::Init();
 		ENGINE_CORE_WARN("Logger Initialized!");
 
@@ -39,6 +35,9 @@ namespace Engine {
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
 		m_GameManager = new GameManager();
+
+		//Delta Time 
+		m_LastFrame = 0;
 	}
 
 	void Application::Shutdown()
@@ -60,9 +59,16 @@ namespace Engine {
 	{
 		while (m_Running)
 		{
+			//Delta time/////
+			m_CurrentFrame = (float)glfwGetTime();
+			Application::s_DeltaTime = m_CurrentFrame - m_LastFrame;
+			m_LastFrame = m_CurrentFrame;
+			////////////////
+
 			m_Window->OnUpdate();
 			gamelayer.OnUpdate();
-			m_GameManager->Run();
+			m_GameManager->OnUpdate();
+			m_GameManager->Render();
 		}
 	}
 

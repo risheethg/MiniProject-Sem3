@@ -23,6 +23,8 @@ namespace Engine {
 		void OnEvent(Event& event);
 
 		void Run();
+
+		static float s_DeltaTime;
 	private:
 		bool m_Running = true;
 		
@@ -34,6 +36,8 @@ namespace Engine {
 		GameLayer gamelayer;
 
 		bool OnWindowClose(WindowCloseEvent& event);
+
+		float m_CurrentFrame, m_LastFrame;
 	};
 
 }

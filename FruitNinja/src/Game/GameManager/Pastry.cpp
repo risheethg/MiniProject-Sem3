@@ -3,9 +3,14 @@
 
 namespace Engine {
 
-	void Pastry::OnUpdate()
+	void Pastry::OnUpdate(float dt)
 	{
-		///Do physics stuff
+		///Gravity
+		float translationSpeed = 0.01f;
+		m_ModelMatrix = glm::translate(m_ModelMatrix, m_GravityVector * translationSpeed);
+		
+		//Rotate
+		m_ModelMatrix = glm::rotate(m_ModelMatrix,glm::radians(7.0f), m_AnimationVector * translationSpeed);
 	}
 
 	void Pastry::OnEvent(Event& event)
@@ -18,6 +23,7 @@ namespace Engine {
 
 	void Pastry::Draw(Shader* shader)
 	{
+		shader->SetMat4("uModel", m_ModelMatrix);
 		m_Model->Draw(shader);
 	}
 
