@@ -69,7 +69,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\vendor\libs\lib;vendor\GLFW\bin\Debug-windows-x86_64\GLFW;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\vendor\libs\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>assimp-vc143-mtd.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -93,31 +93,32 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\vendor\libs\lib;vendor\GLFW\bin\Debug-windows-x86_64\GLFW;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\vendor\libs\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>assimp-vc143-mtd.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Game\GameManager\Utility\Random.h" />
-    <ClInclude Include="src\Game\GameManager\SceneManager.h" />
-    <ClInclude Include="src\Game\GameManager\GameManager.h" />
-    <ClInclude Include="src\Game\GameManager\Pastry.h" />
-    <ClInclude Include="src\Game\GameManager\Actor.h" />
     <ClInclude Include="src\Game\Application.h" />
     <ClInclude Include="src\Game\Core.h" />
     <ClInclude Include="src\Game\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Game\Events\Event.h" />
     <ClInclude Include="src\Game\Events\MouseEvent.h" />
+    <ClInclude Include="src\Game\GameManager\Actor.h" />
+    <ClInclude Include="src\Game\GameManager\GameManager.h" />
+    <ClInclude Include="src\Game\GameManager\Pastry.h" />
+    <ClInclude Include="src\Game\GameManager\Player.h" />
+    <ClInclude Include="src\Game\GameManager\SceneManager.h" />
+    <ClInclude Include="src\Game\GameManager\Utility\Random.h" />
     <ClInclude Include="src\Game\GameManager\Utility\Timer.h" />
     <ClInclude Include="src\Game\Layers\GameLayer.h" />
     <ClInclude Include="src\Game\Log.h" />
     <ClInclude Include="src\Game\Renderer\Mesh.h" />
     <ClInclude Include="src\Game\Renderer\Model.h" />
     <ClInclude Include="src\Game\Renderer\Shader.h" />
+    <ClInclude Include="src\Game\Renderer\TexturePlane.h" />
     <ClInclude Include="src\Game\Window\Window.h" />
     <ClInclude Include="src\Game\Window\WindowsWindow.h" />
     <ClInclude Include="src\Game\pch.h" />
-    <ClInclude Include="src\Game\Renderer\TexturePlane.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\exponential.hpp" />
     <ClInclude Include="vendor\glm\glm\ext.hpp" />
@@ -143,23 +144,24 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Game\GameManager\Utility\Random.cpp" />
-    <ClCompile Include="src\Game\GameManager\SceneManager.cpp" />
-    <ClCompile Include="src\Game\GameManager\GameManager.cpp" />
-    <ClCompile Include="src\Game\GameManager\Pastry.cpp" />
-    <ClCompile Include="src\Game\GameManager\Actor.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Game\Application.cpp" />
+    <ClCompile Include="src\Game\GameManager\Actor.cpp" />
+    <ClCompile Include="src\Game\GameManager\GameManager.cpp" />
+    <ClCompile Include="src\Game\GameManager\Pastry.cpp" />
+    <ClCompile Include="src\Game\GameManager\Player.cpp" />
+    <ClCompile Include="src\Game\GameManager\SceneManager.cpp" />
+    <ClCompile Include="src\Game\GameManager\Utility\Random.cpp" />
     <ClCompile Include="src\Game\Layers\GameLayer.cpp" />
     <ClCompile Include="src\Game\Log.cpp" />
     <ClCompile Include="src\Game\Renderer\Mesh.cpp" />
     <ClCompile Include="src\Game\Renderer\Model.cpp" />
     <ClCompile Include="src\Game\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Game\Renderer\TexturePlane.cpp" />
     <ClCompile Include="src\Game\Window\WindowsWindow.cpp" />
     <ClCompile Include="src\Game\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Game\Renderer\TexturePlane.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

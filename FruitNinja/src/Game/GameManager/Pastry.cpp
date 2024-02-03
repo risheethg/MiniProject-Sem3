@@ -5,12 +5,18 @@ namespace Engine {
 
 	void Pastry::OnUpdate(float dt)
 	{
-		///Gravity
-		float translationSpeed = 0.01f;
-		m_ModelMatrix = glm::translate(m_ModelMatrix, m_GravityVector * translationSpeed);
+		const float translationSpeed = 0.01f;
+		m_Velocity += m_GravityVector * dt;
+		m_Position += m_Velocity * dt;
+
+		//Update Model Matrix
+		m_ModelMatrix = glm::mat4(1.0f);
+		m_ModelMatrix = glm::translate(m_ModelMatrix, m_Position * translationSpeed);
+	}
+
+	Pastry::~Pastry()
+	{
 		
-		//Rotate
-		m_ModelMatrix = glm::rotate(m_ModelMatrix,glm::radians(7.0f), m_AnimationVector * translationSpeed);
 	}
 
 	void Pastry::OnEvent(Event& event)
@@ -23,8 +29,19 @@ namespace Engine {
 
 	void Pastry::Draw(Shader* shader)
 	{
+		shader->SetVec3("uPos", m_Position);
 		shader->SetMat4("uModel", m_ModelMatrix);
 		m_Model->Draw(shader);
 	}
 
+	void Pastry::ApplyForce(glm::vec3 force)
+	{
+		m_Velocity = force;
+	}
+
+	glm::vec2 Pastry::GetScreenCoordinates() const
+	{
+		glm::vec4 worldpos = g_ProjectionMatrix * g_ViewMatrix * m_ModelMatrix * glm::vec4(m_Position, 1.0f);
+		return { (int)worldpos.x, (int)worldpos.y };
+	}
 }

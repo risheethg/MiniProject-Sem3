@@ -6,9 +6,9 @@ namespace Engine {
 	{
 	public:
 		static int GetModel(int x);
-		static float GetPosition(int x);
+		static glm::vec3 GetPosition(int x);
+		static glm::vec3 GetAnimation(int x);
 		static int GetSpawnTime(int x);
-		static int GetSpawnForce(int x);
 	};
 
 }

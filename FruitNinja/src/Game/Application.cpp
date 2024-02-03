@@ -14,8 +14,6 @@ namespace Engine {
 
 	Application* Application::s_Instance = nullptr;
 
-	float Application::s_DeltaTime = 0;
-
 	Application::Application()
 	{
 		Init();
@@ -35,9 +33,6 @@ namespace Engine {
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
 		m_GameManager = new GameManager();
-
-		//Delta Time 
-		m_LastFrame = 0;
 	}
 
 	void Application::Shutdown()
@@ -50,23 +45,16 @@ namespace Engine {
 	{
 		EventDispatcher ed(event);
 		ed.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-		
+
 		if (event.m_Handled == false)
-			gamelayer.OnEvent(event);
+			m_GameManager->OnEvent(event);
 	}
 
 	void Application::Run()
 	{
 		while (m_Running)
 		{
-			//Delta time/////
-			m_CurrentFrame = (float)glfwGetTime();
-			Application::s_DeltaTime = m_CurrentFrame - m_LastFrame;
-			m_LastFrame = m_CurrentFrame;
-			////////////////
-
 			m_Window->OnUpdate();
-			gamelayer.OnUpdate();
 			m_GameManager->OnUpdate();
 			m_GameManager->Render();
 		}
