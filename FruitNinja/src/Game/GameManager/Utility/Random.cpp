@@ -9,10 +9,10 @@ namespace Engine {
 		return (rand() % x);
 	}
 
-	float Random::GetPosition(int x)
+	glm::vec3 Random::GetPosition(int x)
 	{
 		srand(time(0));
-		return (1 + rand() % x);
+		return glm::vec3((1 + rand() % x), 0.0f, 0.0f);
 	}
 
 	int Random::GetSpawnTime(int x)
@@ -21,9 +21,9 @@ namespace Engine {
 		return (1 + rand() % x);
 	}
 
-	int Random::GetSpawnForce(int x)
+	glm::vec3 Random::GetAnimation(int x)
 	{
 		srand(time(0));
-		return (1 + rand() % x);
+		return glm::vec3((float)(2 + rand() % x) / 10, (float)(2 + rand() % x) / 10, (float)(2 + rand() % x) / 10);
 	}
 }

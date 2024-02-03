@@ -22,7 +22,7 @@ namespace Engine {
 
 	void GameLayer::OnEvent(Event& e)
 	{
-		ENGINE_TRACE("{0} : From Game Layer", e.ToString());
+
 	}
 
 }

@@ -10,6 +10,12 @@
     <Filter Include="src\Game\Events">
       <UniqueIdentifier>{1A046622-868F-D3E6-8FA0-56DBFBAA2FE7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Game\GameManager">
+      <UniqueIdentifier>{5A92BE52-4621-481C-EF3F-5C17DBAD58C2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\GameManager\Utility">
+      <UniqueIdentifier>{9D0A5C22-89C5-4BCE-327D-C4181E17965E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Game\Layers">
       <UniqueIdentifier>{F5EE4831-617A-B6F5-6A8B-39EAD69512F6}</UniqueIdentifier>
     </Filter>
@@ -45,13 +51,43 @@
     <ClInclude Include="src\Game\Events\MouseEvent.h">
       <Filter>src\Game\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Game\GameManager\Actor.h">
+      <Filter>src\Game\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameManager\GameManager.h">
+      <Filter>src\Game\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameManager\Pastry.h">
+      <Filter>src\Game\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameManager\Player.h">
+      <Filter>src\Game\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameManager\SceneManager.h">
+      <Filter>src\Game\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameManager\Utility\Random.h">
+      <Filter>src\Game\GameManager\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameManager\Utility\Timer.h">
+      <Filter>src\Game\GameManager\Utility</Filter>
+    </ClInclude>
     <ClInclude Include="src\Game\Layers\GameLayer.h">
       <Filter>src\Game\Layers</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\Log.h">
       <Filter>src\Game</Filter>
     </ClInclude>
+    <ClInclude Include="src\Game\Renderer\Mesh.h">
+      <Filter>src\Game\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Renderer\Model.h">
+      <Filter>src\Game\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Game\Renderer\Shader.h">
+      <Filter>src\Game\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Renderer\TexturePlane.h">
       <Filter>src\Game\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\Window\Window.h">
@@ -132,15 +168,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\GameManager\Actor.h" />
-    <ClInclude Include="src\Game\GameManager\Pastry.h" />
-    <ClInclude Include="src\Game\GameManager\GameManager.h" />
-    <ClInclude Include="src\Game\GameManager\SceneManager.h" />
-    <ClInclude Include="src\Game\Renderer\TexturePlane.h" />
-    <ClInclude Include="src\Game\Renderer\Model.h" />
-    <ClInclude Include="src\Game\Renderer\Mesh.h" />
-    <ClInclude Include="src\Game\GameManager\Utility\Random.h" />
-    <ClInclude Include="src\Game\GameManager\Utility\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -149,13 +176,40 @@
     <ClCompile Include="src\Game\Application.cpp">
       <Filter>src\Game</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\GameManager\Actor.cpp">
+      <Filter>src\Game\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameManager\GameManager.cpp">
+      <Filter>src\Game\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameManager\Pastry.cpp">
+      <Filter>src\Game\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameManager\Player.cpp">
+      <Filter>src\Game\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameManager\SceneManager.cpp">
+      <Filter>src\Game\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameManager\Utility\Random.cpp">
+      <Filter>src\Game\GameManager\Utility</Filter>
+    </ClCompile>
     <ClCompile Include="src\Game\Layers\GameLayer.cpp">
       <Filter>src\Game\Layers</Filter>
     </ClCompile>
     <ClCompile Include="src\Game\Log.cpp">
       <Filter>src\Game</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\Renderer\Mesh.cpp">
+      <Filter>src\Game\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Renderer\Model.cpp">
+      <Filter>src\Game\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Game\Renderer\Shader.cpp">
+      <Filter>src\Game\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Renderer\TexturePlane.cpp">
       <Filter>src\Game\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Game\Window\WindowsWindow.cpp">
@@ -164,13 +218,5 @@
     <ClCompile Include="src\Game\pch.cpp">
       <Filter>src\Game</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\GameManager\Actor.cpp" />
-    <ClCompile Include="src\Game\GameManager\Pastry.cpp" />
-    <ClCompile Include="src\Game\GameManager\GameManager.cpp" />
-    <ClCompile Include="src\Game\GameManager\SceneManager.cpp" />
-    <ClCompile Include="src\Game\Renderer\TexturePlane.cpp" />
-    <ClCompile Include="src\Game\Renderer\Model.cpp" />
-    <ClCompile Include="src\Game\Renderer\Mesh.cpp" />
-    <ClCompile Include="src\Game\GameManager\Utility\Random.cpp" />
   </ItemGroup>
 </Project>

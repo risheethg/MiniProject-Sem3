@@ -6,15 +6,18 @@ layout (location = 1) in vec3 aNormal;
 layout (location = 2) in vec2 aTexCoords;
 
 out vec2 TexCoords;
+//out vec3 Normal;
+//out vec3 FragPos;
 
 uniform mat4 uModel;
 uniform mat4 uView;
 uniform mat4 uProjection;
+uniform vec3 uPos;
 
 void main()
 {
     TexCoords = aTexCoords;    
-    gl_Position = uProjection * uView * uModel * aPos;
+    gl_Position = uProjection * uView * uModel * (aPos + vec4(uPos, 0.0));
 }
 
 #shader fragment 

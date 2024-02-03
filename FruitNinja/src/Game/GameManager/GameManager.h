@@ -6,6 +6,7 @@
 #include "Renderer/Model.h"
 #include "Renderer/TexturePlane.h"
 
+#include "Events/Event.h"
 
 #include "Window/Window.h"
 
@@ -13,14 +14,11 @@
 #include "Utility/Timer.h"
 
 #include "Pastry.h"
+#include "Player.h"	
+
+#define MAX_OBJECTS 10
 
 namespace Engine {
-
-	enum class PastryModel
-	{
-		NONE = -1,
-		GINGERBREAD, BISCUIT, DONUT, MACARON
-	};
 
 	class GameManager
 	{
@@ -29,7 +27,10 @@ namespace Engine {
 		~GameManager();
 
 		void OnUpdate();
+		void OnEvent(Event& event);
 		void Render();
+		
+		static float s_DeltaTime;
 	private:
 		Timer* m_Timer;
 
@@ -45,9 +46,10 @@ namespace Engine {
 
 		///Gameplay///////
 		float m_TimeBetweenSpawn;
-		float m_SpawnPosition;
-		float m_SpawnForce;
-		glm::vec3 m_GravityVector;
+		glm::vec3 m_GeneratedSpawnPosition;
+		glm::vec3 m_GeneratedAnimationVector;
+
+		DrawProps m_DrawProps;
 
 		void Spawn();
 		DrawProps GenerateRandomValues();
@@ -59,11 +61,10 @@ namespace Engine {
 
 		Pastry* TestPastry;
 
+		Player* m_Player;
+
 		///Delta Time
-		float s_DeltaTime;
-		float m_StartTime;
-		float m_CurrentTime;
-		float m_LastTime;
+		float m_CurrentFrame, m_LastFrame;
 	};
 
 }

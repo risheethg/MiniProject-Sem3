@@ -13,7 +13,11 @@ namespace Engine {
 
 	}
 
-	void Actor::Draw(Shader* shader)
+	void Draw(Shader* shader)
+	{
+
+	}
+	void Actor::ApplyForce(glm::vec3 force)
 	{
 
 	}
