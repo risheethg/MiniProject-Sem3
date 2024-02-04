@@ -86,7 +86,7 @@ namespace Engine {
 		///Update Game Objects
 		for (auto GameObject : m_GameObjects)
 		{
-			if (m_Player->GetScreenCoordinates().x == GameObject->GetScreenCoordinates().x)
+			if (m_Player->GetScreenCoordinates() == GameObject->GetScreenCoordinates())
 			{
 				ENGINE_TRACE("Collision Occured!")
 			}
